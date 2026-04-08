@@ -6,11 +6,9 @@ using console_array.Modules.Display;
 
 
 
-var display = new Display();
+var display = new DisplayDesign();
 
-
-display.DisplayHeader();
-display.DisplayMenu();
+display.MainMenu();
 
 
 

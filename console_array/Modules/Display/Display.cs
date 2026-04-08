@@ -7,27 +7,23 @@ using System.Threading.Tasks;
 
 namespace console_array.Modules.Display
 {
-    public class Display
+    public class DisplayDesign
     {
+        public void MainMenu()
+        {
+            Console.Clear();
+            DisplayHeader();
+            DisplayMenu();
+        }
         public void DisplayHeader()
         {
-            Console.WriteLine("                                                           ");
-            Console.WriteLine("                                                           ");
-            Console.WriteLine("                                                           ");
-            Console.WriteLine("                                                           ");
-            Console.WriteLine("                                                           ");
-            Console.WriteLine("                                                           ");
-            Console.WriteLine("                                                           ");
+            DisplaySpace();
             Console.WriteLine("                            *******************************");
             Console.WriteLine("                            *******************************");
             Console.WriteLine("                            ***     WELCOME TO MY APP   ***");
             Console.WriteLine("                            *******************************");
             Console.WriteLine("                            *******************************");
-            Console.WriteLine("                                                           ");
-            Console.WriteLine("                                                           ");
-            Console.WriteLine("                                                           ");
-            Console.WriteLine("                                                           ");
-            Console.WriteLine("                                                           ");
+            DisplaySpace();
         }
 
         public void DisplayMenu()
@@ -42,6 +38,31 @@ namespace console_array.Modules.Display
 
             int option = int.Parse(Console.ReadLine());
             menuOption.MenuOption(option);
+        }
+
+        public void DisplaySpace()
+        {
+            Console.WriteLine("                                                           ");
+            Console.WriteLine("                                                           ");
+            Console.WriteLine("                                                           ");
+            Console.WriteLine("                                                           ");
+            Console.WriteLine("                                                           ");
+            Console.WriteLine("                                                           ");
+            Console.WriteLine("                                                           ");
+        }
+
+        public void Continue()
+        {
+            Console.WriteLine("Would you like to continue? Y/N");
+            var cont = Console.ReadLine();
+            if(cont.ToLower() == "y")
+            {
+                MainMenu();
+            }
+            else
+            {
+                return;
+            }
         }
 
 

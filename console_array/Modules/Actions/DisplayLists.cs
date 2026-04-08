@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using console_array.Modules.Display;
 
 namespace console_array.Modules.Actions
 {
@@ -10,6 +11,7 @@ namespace console_array.Modules.Actions
     {
         public void DisplayAll()
         {
+            var display_design = new DisplayDesign();
             List<List<string>> all_items = new List<List<string>>();
             List<string> firstItem = new List<string>();
             List<string> secondItem = new List<string>();
@@ -26,15 +28,19 @@ namespace console_array.Modules.Actions
             all_items.Add(firstItem);
             all_items.Add(secondItem);
 
+
+            display_design.DisplaySpace();
             for (int i = 0; i < all_items.Count; i++)
             {
-                Console.WriteLine($"Item number {i + 1} :");
+                Console.WriteLine($"                           Item number {i + 1} :");
 
                 foreach (var item in all_items[i])
                 {
-                    Console.WriteLine($" - {item}");
+                    Console.WriteLine($"                           - {item}");
                 }
             }
+
+            display_design.Continue();
         }
     }
 }
