@@ -1,4 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+using console_array.Modules.Display;
 
-Console.WriteLine("test");
+
+
+
+
+var display = new Display();
+
+
+display.DisplayHeader();
+display.DisplayMenu();
