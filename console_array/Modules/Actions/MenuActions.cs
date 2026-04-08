@@ -16,12 +16,15 @@ namespace console_array.Modules.Actions
             switch (opt)
             {
                 case 1:
+                    Console.Clear();
                     displayItems.DisplayAll();
                     break;
                 case 2:
+                    Console.Clear();
                     Console.WriteLine("option 2");
                     break;
                 case 3:
+                    Console.Clear();
                     Console.WriteLine("option 3");
                     break;
                 default:
