@@ -55,7 +55,7 @@ namespace console_array.Modules.Display
         {
             Console.WriteLine("Would you like to continue? Y/N");
             var cont = Console.ReadLine();
-            if(cont.ToLower() == "y")
+            if(cont?.ToLower() == "y")
             {
                 MainMenu();
             }
