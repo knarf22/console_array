@@ -1,4 +1,5 @@
-﻿using System;
+﻿using console_array.Modules.AppDataData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,23 +10,26 @@ namespace console_array.Modules.Actions
     public class MenuActions
     {
 
-        public void MenuOption(int opt)
+        public void MenuOption(int opt, AppData data, ref bool r)
         {
-            var displayItems = new DisplayLists();
+            var action = new ActionItems();
 
             switch (opt)
             {
                 case 1:
                     Console.Clear();
-                    displayItems.DisplayAll();
+                    action.DisplayAll(data);
                     break;
                 case 2:
                     Console.Clear();
-                    Console.WriteLine("option 2");
+                    action.AddItem(data);
                     break;
                 case 3:
                     Console.Clear();
-                    Console.WriteLine("option 3");
+                    action.RemoveItem(data);
+                    break;
+                case 4:
+                    r = false;
                     break;
                 default:
                     Console.WriteLine("invalid option");

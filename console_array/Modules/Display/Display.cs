@@ -1,4 +1,5 @@
 ﻿using console_array.Modules.Actions;
+using console_array.Modules.AppDataData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,19 @@ namespace console_array.Modules.Display
 {
     public class DisplayDesign
     {
-        public void MainMenu()
+
+        private AppData _data;
+        private MenuActions _menuActions;
+        public DisplayDesign(AppData data)
+        {
+            _data = data;
+            _menuActions = new MenuActions();
+        }
+        public void MainMenu(ref bool running)
         {
             Console.Clear();
             DisplayHeader();
-            DisplayMenu();
+            DisplayMenu(ref running);
         }
         public void DisplayHeader()
         {
@@ -26,18 +35,18 @@ namespace console_array.Modules.Display
             DisplaySpace();
         }
 
-        public void DisplayMenu()
+        public void DisplayMenu(ref bool r)
         {
-            var menuOption = new MenuActions();
 
             Console.WriteLine("                           ---------------------------------");
             Console.WriteLine("                           | 1. Display List               |");
-            Console.WriteLine("                           | 2. Add List                   |");
-            Console.WriteLine("                           | 3. Delete List                |");
+            Console.WriteLine("                           | 2. Add Item                   |");
+            Console.WriteLine("                           | 3. Delete Item                |");
+            Console.WriteLine("                           | 4. Exit                       |");
             Console.WriteLine("                           ---------------------------------");
 
             int option = int.Parse(Console.ReadLine());
-            menuOption.MenuOption(option);
+            _menuActions.MenuOption(option, _data,ref r);
         }
 
         public void DisplaySpace()
@@ -49,20 +58,6 @@ namespace console_array.Modules.Display
             Console.WriteLine("                                                           ");
             Console.WriteLine("                                                           ");
             Console.WriteLine("                                                           ");
-        }
-
-        public void Continue()
-        {
-            Console.WriteLine("Would you like to continue? Y/N");
-            var cont = Console.ReadLine();
-            if(cont?.ToLower() == "y")
-            {
-                MainMenu();
-            }
-            else
-            {
-                return;
-            }
         }
 
 
