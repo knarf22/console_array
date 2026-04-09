@@ -1,5 +1,6 @@
 ﻿using console_array.Modules.Actions;
 using console_array.Modules.AppDataData;
+using console_array.Modules.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +14,18 @@ namespace console_array.Modules.Display
 
         private AppData _data;
         private MenuActions _menuActions;
+        private KeepRunning _running;
         public DisplayDesign(AppData data)
         {
             _data = data;
             _menuActions = new MenuActions();
+            _running = new KeepRunning();
         }
-        public void MainMenu(ref bool running)
+        public void MainMenu()
         {
             Console.Clear();
             DisplayHeader();
-            DisplayMenu(ref running);
+            DisplayMenu();
         }
         public void DisplayHeader()
         {
@@ -35,7 +38,7 @@ namespace console_array.Modules.Display
             DisplaySpace();
         }
 
-        public void DisplayMenu(ref bool r)
+        public void DisplayMenu()
         {
 
             Console.WriteLine("                           ---------------------------------");
@@ -46,7 +49,7 @@ namespace console_array.Modules.Display
             Console.WriteLine("                           ---------------------------------");
 
             int option = int.Parse(Console.ReadLine());
-            _menuActions.MenuOption(option, _data,ref r);
+            _menuActions.MenuOption(option, _data, _running.IsRunning);
         }
 
         public void DisplaySpace()

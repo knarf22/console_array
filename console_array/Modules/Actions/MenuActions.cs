@@ -10,7 +10,7 @@ namespace console_array.Modules.Actions
     public class MenuActions
     {
 
-        public void MenuOption(int opt, AppData data, ref bool r)
+        public void MenuOption(int opt, AppData data,bool r)
         {
             var action = new ActionItems();
 
