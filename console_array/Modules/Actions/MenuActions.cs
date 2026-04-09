@@ -1,4 +1,5 @@
 ﻿using console_array.Modules.AppDataData;
+using console_array.Modules.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,12 @@ namespace console_array.Modules.Actions
 {
     public class MenuActions
     {
-
-        public void MenuOption(int opt, AppData data,bool r)
+        private KeepRunning _running;
+        public MenuActions(KeepRunning running)
+        {
+            _running = running;
+        }
+        public void MenuOption(int opt, AppData data)
         {
             var action = new ActionItems();
 
@@ -29,7 +34,7 @@ namespace console_array.Modules.Actions
                     action.RemoveItem(data);
                     break;
                 case 4:
-                    r = false;
+                    _running.IsRunning = false;
                     break;
                 default:
                     Console.WriteLine("invalid option");

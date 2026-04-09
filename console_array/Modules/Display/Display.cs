@@ -14,12 +14,10 @@ namespace console_array.Modules.Display
 
         private AppData _data;
         private MenuActions _menuActions;
-        private KeepRunning _running;
-        public DisplayDesign(AppData data)
+        public DisplayDesign(AppData data, KeepRunning running)
         {
             _data = data;
-            _menuActions = new MenuActions();
-            _running = new KeepRunning();
+            _menuActions = new MenuActions(running);
         }
         public void MainMenu()
         {
@@ -49,7 +47,7 @@ namespace console_array.Modules.Display
             Console.WriteLine("                           ---------------------------------");
 
             int option = int.Parse(Console.ReadLine());
-            _menuActions.MenuOption(option, _data, _running.IsRunning);
+            _menuActions.MenuOption(option, _data);
         }
 
         public void DisplaySpace()
